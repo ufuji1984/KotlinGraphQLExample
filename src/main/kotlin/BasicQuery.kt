@@ -5,10 +5,8 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import schema.github.RetrieveUsernameQuery
 
-
 suspend fun main() {
-    // set your own token
-    val token = ""
+    val token = GitHubTokenAccessor.getTokenFromPropertyFile()
     val okHttpClient = OkHttpClient.Builder()
             .addInterceptor { chain: Interceptor.Chain ->
                 val original: Request = chain.request()

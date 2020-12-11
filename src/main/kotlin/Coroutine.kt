@@ -10,8 +10,7 @@ import schema.github.RetrieveRepositoriesQuery
 
 
 suspend fun main() {
-    // set your own token
-    val token = ""
+    val token = GitHubTokenAccessor.getTokenFromPropertyFile()
     val okHttpClient: OkHttpClient = OkHttpClient.Builder()
             .addInterceptor { chain: Interceptor.Chain ->
                 val original: Request = chain.request()
