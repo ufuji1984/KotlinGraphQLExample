@@ -6,7 +6,7 @@ class GitHubTokenAccessor {
     companion object {
         fun getTokenFromPropertyFile(): String {
             // https://www.techiedelight.com/read-write-values-properties-file-kotlin/
-            val file = File("/Users/yu-fujisaki/git/KotlinGraphQLExample.properties")
+            val file = File("./KotlinGraphQLExample.properties")
 
             val prop = Properties()
             FileInputStream(file).use { prop.load(it) }
