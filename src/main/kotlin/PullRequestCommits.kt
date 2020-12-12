@@ -3,7 +3,7 @@ import com.apollographql.apollo.coroutines.await
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Request
-import schema.github.RetrieveUsernameQuery
+import schema.github.RetrievePullRequestCommitsQuery
 
 suspend fun main() {
     val token = GitHubTokenAccessor.getTokenFromPropertyFile()
@@ -21,6 +21,6 @@ suspend fun main() {
             .okHttpClient(okHttpClient)
             .build()
     
-// TODO    val pullRequest = apolloClient.query(RetrievePullRequestCommits()).await()
-//    print(user.data?.viewer?.login)
+    val pullRequest = apolloClient.query(RetrievePullRequestCommitsQuery("jwo", "react-hover-image", 3)).await()
+    print(pullRequest.data?.repository?.pullRequest?.url)
 }
