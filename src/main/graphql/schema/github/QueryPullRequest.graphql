@@ -1,0 +1,15 @@
+query retrievePullRequestCommits($owner_name:String!, $repo_name:String!, $pr_number: Int!){
+        repository(owner: $owner_name, name: $repo_name){
+            pullRequest(number: $pr_number){
+                url
+                commits(last: 250){
+                    nodes{
+                        commit{
+                            oid
+                            message
+                        }
+                    }
+                }
+            }
+        }
+}

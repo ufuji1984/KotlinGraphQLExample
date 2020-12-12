@@ -9,7 +9,7 @@ import schema.github.type.CreateIssueInput
 
 
 suspend fun main() {
-    val token = GitHubTokenAccessor.getTokenFromPropertyFile()
+    val token = "" // ゴミデータできそうなので切っとく GitHubTokenAccessor.getTokenFromPropertyFile()
     val okHttpClient: OkHttpClient = OkHttpClient.Builder()
             .addInterceptor { chain: Interceptor.Chain ->
                 val original: Request = chain.request()
